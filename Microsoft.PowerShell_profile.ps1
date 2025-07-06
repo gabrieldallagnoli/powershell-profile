@@ -185,6 +185,12 @@ function .. { z .. }
 # Sobe dois níveis com zoxide
 function ... { z ../.. }
 
+# Sobe três níveis com zoxide
+function .... { z ../../.. }
+
+# Sobe quatro níveis com zoxide
+function ..... { z ../../../.. }
+
 # Visualizar funções do perfil
 function help { bat $PROFILE }
 
