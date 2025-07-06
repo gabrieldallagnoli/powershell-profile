@@ -116,7 +116,7 @@ function lazyg {
 export "PROJETOS" "C:\TheWall\GitHub"
 
 function edit {
-    code $env:PROJETOS\powershell-profile\Microsoft.PowerShell_profile.ps1
+    code $env:PROJETOS\powershell-profile\
 }
 
 # Remove recursivamente (sem confirmação)
