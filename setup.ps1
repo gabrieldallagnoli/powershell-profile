@@ -1,46 +1,28 @@
 # =============================
-# SETUP DO AMBIENTE POWERSHELL
+#    SETUP AMBIENTE POWERSHELL
 # =============================
 
 # === VARIÁVEIS ===
 $repoProfile = "$PWD\Microsoft.PowerShell_profile.ps1"
-$profilePath = $PROFILE
-$poshThemeUrl = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json"
-$poshThemeDestDir = "$HOME\Documents\PowerShell"
-$poshThemeDestFile = Join-Path $poshThemeDestDir "oh-my-posh.json"
+$themeURL    = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json"
+$themeDir    = "$HOME\Documents\PowerShell"
+$themeFile   = Join-Path $themeDir "oh-my-posh.json"
+$apps        = @("7zip.7zip", "ajeetdsouza.zoxide", "junegunn.fzf")
 
-# === COPIANDO O PERFIL ===
-Write-Host "📄 Copiando perfil PowerShell..."
-Copy-Item -Path $repoProfile -Destination $profilePath -Force
-Write-Host "✅ Perfil copiado para: $profilePath"
+# === PERFIL ===
+Copy-Item -Path $repoProfile -Destination $PROFILE -Force
 
-# === MÓDULOS POWERSHELL ===
-Write-Host "`n📦 Instalando módulos do PowerShell..."
-Install-Module -Name Terminal-Icons -Repository PSGallery -Force -Scope CurrentUser
-Install-Module -Name oh-my-posh -Repository PSGallery -Force -Scope CurrentUser
-Write-Host "✅ Terminal-Icons e oh-my-posh instalados."
+# === MÓDULOS ===
+Install-Module Terminal-Icons -Repository PSGallery -Force -Scope CurrentUser | Out-Null
+Install-Module oh-my-posh     -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 
-# === BAIXANDO TEMA OH-MY-POSH ===
-Write-Host "`n⬇️ Baixando tema oh-my-posh..."
-if (-not (Test-Path $poshThemeDestDir)) {
-    New-Item -ItemType Directory -Path $poshThemeDestDir | Out-Null
+# === TEMA OMP ===
+if (-not (Test-Path $themeDir)) {
+    New-Item -ItemType Directory -Path $themeDir -Force | Out-Null
 }
-Invoke-WebRequest -Uri $poshThemeUrl -OutFile $poshThemeDestFile -UseBasicParsing
-Write-Host "✅ Tema salvo em: $poshThemeDestFile"
+Invoke-WebRequest -Uri $themeURL -OutFile $themeFile -UseBasicParsing
 
-# === PROGRAMAS COM WINGET ===
-Write-Host "`n🧰 Instalando ferramentas com winget..."
-$apps = @(
-    "7zip.7zip",
-    "ajeetdsouza.zoxide",
-    "junegunn.fzf"
-)
-
+# === WINGET APPS ===
 foreach ($app in $apps) {
-    Write-Host "➡️ Instalando $app..."
     winget install --id $app --silent --accept-package-agreements --accept-source-agreements
 }
-Write-Host "✅ Instalações concluídas."
-
-# === FINAL ===
-Write-Host "`n✅ Setup finalizado. Reinicie o terminal ou execute 'pwsh' para aplicar as mudanças."
