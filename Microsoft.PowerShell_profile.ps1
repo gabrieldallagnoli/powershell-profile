@@ -5,9 +5,6 @@
 # Ícones bonitos no terminal
 Import-Module -Name Terminal-Icons
 
-# Navegação inteligente com zoxide
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
 
 # =============================
 #     FUNÇÕES ESTILO UNIX
@@ -244,8 +241,11 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock $scriptblock
 
 
 # =============================
-#     OH-MY-POSH
+#     OH-MY-POSH e Zoxide
 # =============================
 
 # Prompt com tema personalizado (Nord ou outro)
 oh-my-posh init pwsh --config $HOME/Documents/PowerShell/oh-my-posh.json | Invoke-Expression
+
+# Navegação inteligente com zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
