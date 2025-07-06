@@ -29,7 +29,7 @@ function reload { & $profile }
 # Atualiza o perfil do GitHub, só se mudou
 function update {
     try {
-        $url = "https://raw.githubusercontent.com/gabrieldallagnoli/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
+        $url = "https://raw.githubusercontent.com/gabrieldallagnoli/powershell-profile/refs/heads/main/Microsoft.PowerShell_profile.ps1"
         $oldhash = Get-FileHash $PROFILE
         Invoke-RestMethod $url -OutFile "$env:temp/profile.ps1" -ErrorAction Stop
         $newhash = Get-FileHash "$env:temp/profile.ps1"
