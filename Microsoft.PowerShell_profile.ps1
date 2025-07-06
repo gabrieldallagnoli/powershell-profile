@@ -152,14 +152,6 @@ function wr {
 #     UTILITÁRIAS GERAIS
 # =============================
 
-# Exporta minha pasta de projetos
-export "projects" "C:\TheWall\GitHub"
-
-# Atalho para editar o perfil rapidamente
-function edit {
-    code $env:projects\powershell-profile
-}
-
 # Remove recursivamente (sem confirmação)
 function purge {
     foreach ($arg in $args) {
