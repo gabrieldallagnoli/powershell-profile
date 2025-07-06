@@ -10,6 +10,9 @@ $themeFile   = Join-Path $themeDir "oh-my-posh.json"
 $apps        = @("7zip.7zip", "ajeetdsouza.zoxide", "junegunn.fzf")
 
 # === PERFIL ===
+if (-not (Test-Path (Split-Path $PROFILE))) {
+    New-Item -ItemType Directory -Path (Split-Path $PROFILE) -Force | Out-Null
+}
 Copy-Item -Path $repoProfile -Destination $PROFILE -Force
 
 # === MÓDULOS ===
