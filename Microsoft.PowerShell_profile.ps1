@@ -41,11 +41,6 @@ function update {
     }
 }
 
-# Atualiza todos os pacotes do WinGet
-function up {
-    winget upgrade --all --accept-source-agreements --accept-package-agreements
-}
-
 # Extrai arquivos com 7zip
 function extract($f) {
     $full = Get-Item -Path $f -ErrorAction SilentlyContinue
