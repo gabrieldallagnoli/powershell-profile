@@ -98,10 +98,25 @@ function trash($path) {
 }
 
 # Adiciona, comita e envia alterações
-function lazyg {
+function zyg {
     git add -A
     git commit -m "$args"
     git push
+}
+
+# Instala um aplicativo usando o winget. Exemplo: wi nome-do-app
+function wi {
+    winget install $args
+}
+
+# Pesquisa aplicativos disponíveis no winget. Exemplo: ws nome-do-app
+function ws {
+    winget search $args
+}
+
+# Atualiza todos os aplicativos instalados via winget.
+function wu {
+    winget update --all
 }
 
 
@@ -218,7 +233,7 @@ $scriptblock = {
         'git'    = @('status', 'add', 'commit', 'push', 'pull', 'clone', 'checkout')
         'npm'    = @('install', 'start', 'run', 'test', 'build')
         'deno'   = @('run', 'compile', 'bundle', 'test', 'lint', 'fmt', 'cache', 'info', 'doc', 'upgrade')
-        'winget' = @('install', 'search', 'upgrade', 'list', 'uninstall')
+        'winget' = @('install', 'search', 'update', 'list', 'uninstall')
     }
     $command = $commandAst.CommandElements[0].Value
     if ($customCompletions.ContainsKey($command)) {
