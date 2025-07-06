@@ -153,11 +153,11 @@ function wr {
 # =============================
 
 # Exporta minha pasta de projetos
-export "projetos" "C:\TheWall\GitHub"
+export "projects" "C:\TheWall\GitHub"
 
 # Atalho para editar o perfil rapidamente
 function edit {
-    code $env:projetos\powershell-profile
+    code $env:projects\powershell-profile
 }
 
 # Remove recursivamente (sem confirmação)
