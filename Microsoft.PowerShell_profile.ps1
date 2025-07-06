@@ -104,19 +104,47 @@ function zyg {
     git push
 }
 
-# Instala um aplicativo usando o winget. Exemplo: wi nome-do-app
+
+# =============================
+#     WINGET ALIASES
+# =============================
+
+# Instala um aplicativo. Ex: wi nome-do-app
 function wi {
-    winget install $args
+    if ($args.Count -eq 0) {
+        return
+    }
+    winget install --id $args
 }
 
-# Pesquisa aplicativos disponíveis no winget. Exemplo: ws nome-do-app
+# Pesquisa aplicativo. Ex: ws nome-do-app
 function ws {
+    if ($args.Count -eq 0) {
+        return
+    }
     winget search $args
 }
 
-# Atualiza todos os aplicativos instalados via winget.
+# Atualiza todos ou um app. Ex: wu ou wu nome-do-app
 function wu {
-    winget update --all
+    if ($args.Count -eq 0) {
+        winget upgrade --all
+    } else {
+        winget upgrade $args
+    }
+}
+
+# Lista todos os apps instalados
+function wl {
+    winget list
+}
+
+# Remove app. Ex: wr nome-do-app
+function wr {
+    if ($args.Count -eq 0) {
+        return
+    }
+    winget uninstall $args
 }
 
 
