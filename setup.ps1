@@ -2,6 +2,9 @@
 #    SETUP AMBIENTE POWERSHELL
 # =============================
 
+# === TELEMETRIA ===
+[System.Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', 'true', [System.EnvironmentVariableTarget]::User)
+
 # === VARIÁVEIS ===
 $repoProfile = "$PWD\Microsoft.PowerShell_profile.ps1"
 $themeURL    = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json"

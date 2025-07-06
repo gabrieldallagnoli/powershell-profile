@@ -115,6 +115,7 @@ function lazyg {
 # Exporta minha pasta de projetos
 export "projetos" "C:\TheWall\GitHub"
 
+# Atalho para editar o perfil rapidamente
 function edit {
     code $env:projetos\powershell-profile
 }
