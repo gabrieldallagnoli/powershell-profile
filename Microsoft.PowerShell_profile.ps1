@@ -113,10 +113,10 @@ function lazyg {
 # =============================
 
 # Exporta minha pasta de projetos
-export "PROJETOS" "C:\TheWall\GitHub"
+export "projetos" "C:\TheWall\GitHub"
 
 function edit {
-    code $env:PROJETOS\powershell-profile\
+    code $env:projetos\powershell-profile\
 }
 
 # Remove recursivamente (sem confirmação)
