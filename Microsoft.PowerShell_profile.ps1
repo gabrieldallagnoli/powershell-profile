@@ -152,8 +152,8 @@ function help { bat $PROFILE }
 
 Set-Alias cl clear       # Limpar terminal
 Set-Alias ls ll          # ls → lista simples
-Set-Alias rm purge       # rm → remove
-Set-Alias rmv trash      # rmv → lixeira
+Set-Alias rm trash       # rm  → lixeira
+Set-Alias rmv purge      # rmv → remove
 Set-Alias cat bat        # cat → usa bat (requer bat instalado)
 Set-Alias mk mkdir       # mk → mkdir
 Set-Alias xt extract     # xt → extrator
