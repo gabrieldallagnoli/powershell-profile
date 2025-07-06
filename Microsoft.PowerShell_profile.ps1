@@ -81,7 +81,7 @@ function tail($p, $n = 10, [switch]$f = $false) { Get-Content $p -Tail $n -Wait:
 function touch($f) { "" | Out-File $f -Encoding ASCII }
 
 # Utilitários de configuração do Windows por Chris Titus
-function winutil { irm https://christitus.com/win | iex }
+function winutil { Invoke-RestMethod https://christitus.com/win | Invoke-Expression }
 
 # Cria diretório e entra nele via zoxide
 function mkz { param($d) mkdir $d -Force; z $d }
