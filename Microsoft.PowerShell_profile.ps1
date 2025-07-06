@@ -112,6 +112,13 @@ function lazyg {
 #     UTILITÁRIAS GERAIS
 # =============================
 
+# Exporta minha pasta de projetos
+export "PROJETOS" "C:\TheWall\GitHub"
+
+function edit {
+    code $env:PROJETOS\powershell-profile\Microsoft.PowerShell_profile.ps1
+}
+
 # Remove recursivamente (sem confirmação)
 function purge {
     foreach ($arg in $args) {
