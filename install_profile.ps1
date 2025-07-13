@@ -23,6 +23,7 @@ if (-not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 $pkgs = @(
     "7zip.7zip",
     "junegunn.fzf",
+    "sharkdp.bat",
     "ajeetdsouza.zoxide",
     "JanDeDobbeleer.OhMyPosh"
 )
